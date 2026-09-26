@@ -3,247 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Ma'am 🎂</title>
+<title>Happy Birthday Anita Ma'am 🎂</title>
 
 <style>
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-}
-
 body {
-    font-family: Georgia, serif;
-    background: linear-gradient(135deg, #ffd6e8, #e5d8ff, #d7f4ff);
-    overflow-x: hidden;
-}
-
-/* ---------- PAGES ---------- */
-
-.page {
-    display: none;
     min-height: 100vh;
-    width: 100%;
-    padding: 30px 18px;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffe4ec, #e8d9ff, #d9f3ff);
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    overflow: hidden;
+    color: #3d2942;
 }
 
-.page.active {
-    display: flex;
-    animation: pageIn 0.8s ease;
-}
-
-.card {
-    width: 100%;
+.container {
+    width: 90%;
     max-width: 650px;
-    padding: 35px 24px;
-    background: rgba(255,255,255,0.92);
+    text-align: center;
+    padding: 35px 22px;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(12px);
     border-radius: 30px;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.18);
-    position: relative;
-    z-index: 5;
+    box-shadow: 0 15px 40px rgba(80,50,100,0.2);
+    animation: appear 1.5s ease;
+}
+
+.emoji {
+    font-size: 55px;
+    animation: bounce 2s infinite;
 }
 
 h1 {
-    color: #d63384;
-    font-size: clamp(38px, 10vw, 65px);
-    margin: 10px 0;
+    font-size: 42px;
+    margin: 15px 0 8px;
 }
 
-h2 {
-    color: #7547a8;
-    font-size: clamp(24px, 6vw, 34px);
+.name {
+    font-size: 30px;
+    color: #a04b82;
+    margin-bottom: 20px;
 }
 
-p {
-    color: #555;
+.message {
     font-size: 18px;
     line-height: 1.7;
+    margin: 15px auto;
+    max-width: 520px;
 }
-
-.cake {
-    font-size: 90px;
-    animation: bounce 1.5s infinite;
-}
-
-/* ---------- BUTTON ---------- */
 
 button {
-    border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #d63384, #8e44ad);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
     margin-top: 20px;
-    box-shadow: 0 8px 25px rgba(142,68,173,0.35);
+    padding: 13px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #a04b82;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-button:active {
-    transform: scale(0.94);
+button:hover {
+    transform: scale(1.08);
+    background: #84366a;
 }
 
-/* ---------- TEACHER PHOTO ---------- */
-
-.teacher-photo {
-    width: 230px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 25px;
-    border: 7px solid white;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-    display: block;
-    margin: 20px auto;
+.hidden {
+    display: none;
+    margin-top: 25px;
+    font-size: 20px;
+    line-height: 1.6;
 }
 
-/* ---------- BALLOONS ---------- */
-
-.balloon {
-    position: fixed;
-    bottom: -120px;
-    font-size: 55px;
-    z-index: 9000;
-    pointer-events: none;
-    animation: balloonUp 7s linear forwards;
-}
-
-/* ---------- CONFETTI ---------- */
-
-.confetti {
-    position: fixed;
-    top: -50px;
-    z-index: 10000;
-    pointer-events: none;
-    animation: confettiFall 3.5s linear forwards;
-}
-
-/* ---------- SPARKLES ---------- */
-
-.spark {
-    position: fixed;
-    z-index: 11000;
-    pointer-events: none;
+.heart {
+    position: absolute;
     font-size: 25px;
-    animation: sparkle 1.6s ease-out forwards;
+    animation: float 6s linear infinite;
+    opacity: 0.7;
 }
 
-/* ---------- OPENING BLAST ---------- */
-
-.blast {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: white;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: 12000;
-    pointer-events: none;
-    animation: blast 0.8s ease-out forwards;
-}
-
-/* ---------- FINAL ---------- */
-
-.finalCake {
-    font-size: 75px;
-    animation: pulse 1.3s infinite;
-}
-
-.small {
-    color: #888;
-    font-size: 15px;
-}
-
-/* ---------- ANIMATIONS ---------- */
-
-@keyframes pageIn {
+@keyframes appear {
     from {
         opacity: 0;
-        transform: scale(0.85) translateY(30px);
+        transform: translateY(30px) scale(0.95);
     }
-
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
 @keyframes bounce {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-@keyframes balloonUp {
+@keyframes float {
     from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
+        transform: translateY(110vh) rotate(0deg);
     }
-
     to {
-        transform: translateY(-120vh) rotate(30deg);
-        opacity: 0;
-    }
-}
-
-@keyframes confettiFall {
-    from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(115vh) rotate(720deg);
-        opacity: 0;
-    }
-}
-
-@keyframes sparkle {
-    from {
-        transform: scale(0);
-        opacity: 1;
-    }
-
-    to {
-        transform: scale(2.5) translateY(-80px);
-        opacity: 0;
-    }
-}
-
-@keyframes blast {
-    from {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 0.9;
-    }
-
-    to {
-        transform: translate(-50%, -50%) scale(100);
-        opacity: 0;
-    }
-}
-
-@keyframes pulse {
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
+        transform: translateY(-10vh) rotate(360deg);
     }
 }
 </style>
@@ -251,365 +118,48 @@ button:active {
 
 <body>
 
-<!-- ================= PAGE 1 ================= -->
+<div class="heart" style="left:10%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:30%; animation-delay:3s;">✨</div>
+<div class="heart" style="left:70%; animation-delay:2s;">💖</div>
+<div class="heart" style="left:90%; animation-delay:4s;">🌸</div>
 
-<section class="page active" id="page1">
+<div class="container">
 
-    <div class="card">
+    <div class="emoji">🎂</div>
 
-        <div class="cake">🎂</div>
+    <h1>Happy Birthday!</h1>
 
-        <h1>Surprise! 🎉</h1>
-
-        <h2>Happy Birthday, Ma'am! 💐</h2>
-
-        <p>
-            Today is a very special day because
-            it is the birthday of our wonderful teacher.
-        </p>
-
-        <p class="small">
-            ✨ A little surprise from your students ✨
-        </p>
-
-        <button onclick="nextPage()">
-            Tap to Begin 💖
-        </button>
-
+    <div class="name">
+        Anita Mishra Ma'am
     </div>
 
-</section>
+    <p class="message">
+        Wishing you a very Happy Birthday, Ma'am! 🎉
+        <br><br>
+        Thank you for always teaching, guiding and encouraging us.
+        Your kindness and dedication make learning more special.
+        <br><br>
+        May your day be filled with happiness, smiles and lots of beautiful memories. 💐
+    </p>
 
+    <button onclick="showWish()">
+        🎁 One More Wish
+    </button>
 
-<!-- ================= PAGE 2 ================= -->
-
-<section class="page" id="page2">
-
-    <div class="card">
-
-        <div style="font-size:65px;">💐</div>
-
-        <h1>A Special Message</h1>
-
-        <p>
-            Dear Ma'am,
-        </p>
-
-        <p>
-            Thank you for teaching us, guiding us,
-            encouraging us and always believing in us.
-        </p>
-
-        <p>
-            Your kindness and support make our classroom
-            a happier and better place.
-        </p>
-
-        <p>
-            We are truly grateful to have you as our teacher. ❤️
-        </p>
-
-        <button onclick="nextPage()">
-            Next → 🌸
-        </button>
-
+    <div id="secret" class="hidden">
+        🌷 Thank you for being such a wonderful teacher, Ma'am.
+        <br>
+        May you always keep smiling and inspiring everyone around you.
+        <br><br>
+        <b>Once again, Happy Birthday! 🎂✨</b>
     </div>
 
-</section>
-
-
-<!-- ================= PAGE 3 ================= -->
-
-<section class="page" id="page3">
-
-    <div class="card">
-
-        <div style="font-size:55px;">😊✨</div>
-
-        <h1>A Beautiful Smile</h1>
-
-        <!--
-        PUT YOUR TEACHER'S PHOTO
-        IN THE SAME FOLDER AS index.html
-        AND NAME IT teacher.jpg
-        -->
-
-        <img
-            src="teacher.jpg"
-            class="teacher-photo"
-            alt="Teacher's Photo"
-        >
-
-        <p>
-            A beautiful smile can make an ordinary day
-            feel special. 😊
-        </p>
-
-        <p>
-            Thank you for filling our classroom
-            with smiles and wonderful memories. 💖
-        </p>
-
-        <button onclick="nextPage()">
-            Next → 🎂
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- ================= PAGE 4 ================= -->
-
-<section class="page" id="page4">
-
-    <div class="card">
-
-        <div class="finalCake">🎂</div>
-
-        <h1>Happy Birthday, Ma'am! 🎉</h1>
-
-        <h2>
-            💐 Wishing You a Wonderful Year Ahead 💐
-        </h2>
-
-        <p>
-            May your birthday be filled with happiness,
-            laughter, love and beautiful moments.
-        </p>
-
-        <p>
-            May you continue to inspire and guide
-            many students with your kindness.
-        </p>
-
-        <p>
-            With lots of respect and warm wishes,
-            <br><br>
-            <strong>Your Students ❤️</strong>
-        </p>
-
-        <button onclick="celebrate()">
-            🎊 Celebrate Again 🎊
-        </button>
-
-    </div>
-
-</section>
-
+</div>
 
 <script>
-
-/* =====================================
-   CURRENT PAGE
-===================================== */
-
-let currentPage = 1;
-
-
-/* =====================================
-   NEXT PAGE
-===================================== */
-
-function nextPage() {
-
-    document.getElementById("page" + currentPage)
-        .classList.remove("active");
-
-    currentPage++;
-
-    document.getElementById("page" + currentPage)
-        .classList.add("active");
-
-    partyBlast();
+function showWish() {
+    document.getElementById("secret").style.display = "block";
 }
-
-
-/* =====================================
-   PARTY BLAST
-===================================== */
-
-function partyBlast() {
-
-    /* Big white flash */
-
-    let blast = document.createElement("div");
-
-    blast.className = "blast";
-
-    document.body.appendChild(blast);
-
-    setTimeout(function() {
-        blast.remove();
-    }, 900);
-
-
-    /* CONFETTI */
-
-    for (let i = 0; i < 180; i++) {
-
-        let confetti = document.createElement("div");
-
-        confetti.className = "confetti";
-
-        let emojis = [
-            "🎊",
-            "🎉",
-            "✨",
-            "⭐",
-            "💖",
-            "🌸"
-        ];
-
-        confetti.innerHTML =
-            emojis[Math.floor(Math.random() * emojis.length)];
-
-        confetti.style.left =
-            Math.random() * 100 + "vw";
-
-        confetti.style.fontSize =
-            (12 + Math.random() * 20) + "px";
-
-        confetti.style.animationDuration =
-            (2.5 + Math.random() * 3) + "s";
-
-        confetti.style.animationDelay =
-            Math.random() * 0.7 + "s";
-
-        document.body.appendChild(confetti);
-
-        setTimeout(function() {
-            confetti.remove();
-        }, 6000);
-    }
-
-
-    /* SPARKLES */
-
-    for (let i = 0; i < 90; i++) {
-
-        let spark = document.createElement("div");
-
-        spark.className = "spark";
-
-        let symbols = [
-            "✨",
-            "⭐",
-            "💫",
-            "✦",
-            "✧"
-        ];
-
-        spark.innerHTML =
-            symbols[Math.floor(Math.random() * symbols.length)];
-
-        spark.style.left =
-            Math.random() * 100 + "vw";
-
-        spark.style.top =
-            Math.random() * 100 + "vh";
-
-        spark.style.fontSize =
-            (15 + Math.random() * 30) + "px";
-
-        spark.style.animationDelay =
-            Math.random() * 0.5 + "s";
-
-        document.body.appendChild(spark);
-
-        setTimeout(function() {
-            spark.remove();
-        }, 2200);
-    }
-
-
-    /* BALLOONS */
-
-    for (let i = 0; i < 30; i++) {
-
-        setTimeout(function() {
-            createBalloon();
-        }, i * 100);
-
-    }
-}
-
-
-/* =====================================
-   CREATE BALLOON
-===================================== */
-
-function createBalloon() {
-
-    let balloon = document.createElement("div");
-
-    balloon.className = "balloon";
-
-    let balloons = [
-        "🎈",
-        "🎈",
-        "🎈",
-        "🎈",
-        "🎉"
-    ];
-
-    balloon.innerHTML =
-        balloons[Math.floor(Math.random() * balloons.length)];
-
-    balloon.style.left =
-        Math.random() * 95 + "vw";
-
-    balloon.style.fontSize =
-        (35 + Math.random() * 35) + "px";
-
-    balloon.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
-
-    document.body.appendChild(balloon);
-
-    setTimeout(function() {
-        balloon.remove();
-    }, 11000);
-}
-
-
-/* =====================================
-   FINAL CELEBRATION
-===================================== */
-
-function celebrate() {
-
-    partyBlast();
-
-    setTimeout(function() {
-        partyBlast();
-    }, 1200);
-
-}
-
-
-/* =====================================
-   WEBSITE OPENING
-===================================== */
-
-window.onload = function() {
-
-    /* Full-screen opening blast */
-
-    partyBlast();
-
-    /* Extra balloons */
-
-    for (let i = 0; i < 15; i++) {
-
-        setTimeout(function() {
-            createBalloon();
-        }, i * 180);
-
-    }
-
-};
-
 </script>
 
 </body>
